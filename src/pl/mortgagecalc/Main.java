@@ -22,9 +22,10 @@ public class Main {
 			byte years = scanner.nextByte();
 			int numberOfPayments = years * MONTHS_IN_YEAR;
 			
+			double pow = Math.pow(1 + monthlyIntrest, numberOfPayments);
 			double mortgage = principal
-					* (monthlyIntrest * Math.pow(1 + monthlyIntrest, numberOfPayments))
-					/ (Math.pow(1 + monthlyIntrest, numberOfPayments) - 1);
+					* (monthlyIntrest * pow)
+					/ (pow - 1);
 			
 			String mortrageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
 			System.out.println("Mortrage: " + mortrageFormatted);
